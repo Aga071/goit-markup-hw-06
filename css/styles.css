@@ -73,7 +73,6 @@ body {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 }
-
 .logo,
 .logo-footer {
   font-family: var(--font-family-secondary);
@@ -88,7 +87,6 @@ body {
   display: inline-block;
   padding-bottom: 20px;
 }
-
 .logo-span-dark {
   color: var(--color-logo-dark);
 }
@@ -170,7 +168,6 @@ body {
   background-color: var(--background-color-secondary-light);
   padding: 6px 20px;
 }
-
 .page-filter:hover,
 .page-filter:focus {
   color: var(--color-logo-light);
