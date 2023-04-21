@@ -136,6 +136,7 @@ body {
 .contact-details-secondary:focus {
   color: var(--color-logo);
   fill: var(--color-logo);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .heading-pirmary {
   color: var(--color-logo-light);
@@ -175,6 +176,8 @@ body {
   color: var(--color-logo-light);
   background-color: var(--color-logo);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .container-text-start {
   text-align: start;
@@ -216,6 +219,7 @@ body {
 .portfolio-shadow:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .img-with-title {
   position: relative;
@@ -298,11 +302,14 @@ body {
   height: 44px;
   fill: var(--icons-color);
   border-radius: 50%;
+  cursor: pointer;
 }
 .icon-team-secondary:hover,
 .icon-team-secondary:focus {
   background-color: var(--color-logo);
   fill: var(--background-color-primary-light);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-customers {
   fill: var(--icons-color);
@@ -312,11 +319,14 @@ body {
   height: 92px;
   border: 1px solid var(--icons-color);
   border-radius: 4px;
+  cursor: pointer;
 }
 .icon-customers:hover,
 .icon-customers:focus {
   fill: var(--color-logo);
   border-color: var(--color-logo);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .page-filter-list {
   display: flex;
@@ -371,6 +381,7 @@ body {
 .icon-footer-secondary:hover,
 .icon-footer-secondary:focus {
   background-color: var(--color-logo);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-footer {
   fill: var(--color-logo-light);
@@ -466,9 +477,10 @@ body {
   border-radius: 4px;
   padding: 12px 0 12px 42px;
 }
-
+.comment:focus,
 .questionnaire-input:focus {
   border-color: var(--color-logo);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .questionnaire-input:focus-visible,
@@ -492,27 +504,50 @@ body {
   left: 12px;
   bottom: 11px;
 }
-.questionnaire-input:focus .icon-questionnaire {
+.questionnaire-input:focus + .icon-questionnaire {
   fill: var(--color-logo);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .comment {
   resize: none;
   padding: 12px 16px;
   width: 100%;
 }
+.checkbox-appearance {
+  appearance: none;
+  position: absolute;
+}
 .checkbox-label {
+  position: relative;
+  cursor: pointer;
+
   font-size: 14px;
   line-height: 1.714;
   letter-spacing: 0.03em;
   color: var(--color-text-secondary);
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   padding-left: 14px;
   gap: 7px;
   margin-bottom: 30px;
+  padding-top: 10px;
 }
-.checkbox-input {
+.checkbox-label::before {
+  content: '';
+  width: 16px;
+  height: 15px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath id='Vector' d='M14.2222 1.66667V13.3333H1.77778V1.66667H14.2222ZM14.2222 0H1.77778C0.8 0 0 0.75 0 1.66667V13.3333C0 14.25 0.8 15 1.77778 15H14.2222C15.2 15 16 14.25 16 13.3333V1.66667C16 0.75 15.2 0 14.2222 0Z' fill='%23212121'/%3e%3c/svg%3e");
+}
+.checkbox-appearance:checked + .checkbox-label::before {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg id='icon check'%3e%3crect id='Rectangle 11' width='16' height='15' rx='2' fill='%232196F3'/%3e%3cpath id='Vector' d='M3.95703 7.75166L3.88825 7.68604L3.81923 7.75141L2.93123 8.59258L2.85486 8.66492L2.93097 8.73753L6.42671 12.0724L6.49574 12.1382L6.56476 12.0724L14.069 4.91352L14.1449 4.84116L14.069 4.76881L13.1873 3.92764L13.1183 3.86183L13.0493 3.92761L6.49577 10.1735L3.95703 7.75166Z' fill='white' stroke='white' stroke-width='0.2'/%3e%3c/g%3e%3c/svg%3e ");
+  background-position: center;
+  border: none;
+}
+.text-checkbox {
+  cursor: default;
+}
+.checkbox-modal {
   color: var(--color-logo);
   text-decoration: underline;
 }
